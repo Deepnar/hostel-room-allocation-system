@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --bg-cream: #FDF6E3;
+    --surface-latte: #EEE8D5;
+    --text-coffee: #2C241E;
+    --text-muted: #655B53;
+    --accent-ochre: #D29C22; /* Zen Yellow/Gold */
+    --accent-orange: #DE5E30; /* Zen Red/Orange */
+    --card-shadow: 0 4px 20px rgba(44, 36, 30, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-coffee);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Interactive Components --- */
+
+.btn-zen {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--accent-orange);
+    color: white;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(222, 94, 48, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--surface-latte);
+    color: var(--text-coffee);
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--surface-latte);
+    border-radius: 10px;
+    background: var(--bg-cream);
+    color: var(--text-coffee);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: var(--accent-ochre);
+    background: white;
+}
+
+/* --- Layouts --- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    background: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.badge {
+    background: var(--surface-latte);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-ochre);
+}
+
+/* --- Admin Dashboard Specifics --- */
+
+/* The 3-Column Analytics Row */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Individual Stat Cards */
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Specific Colors for Cards */
+.stat-card.earnings { background: var(--text-coffee); color: white; }
+.stat-card.occupancy { background: white; border: 1px solid var(--surface-latte); }
+.stat-card.bookings { background: white; border: 1px solid var(--surface-latte); }
+
+/* The Large Number inside cards */
+.stat-num { font-size: 2.5rem; font-weight: 600; margin: 10px 0; }
+.earnings .stat-num { color: var(--accent-ochre); }
+.occupancy .stat-num { color: var(--accent-orange); }
+.bookings .stat-num { color: var(--text-coffee); }
+
+/* Progress Bar Container */
+.progress-bg {
+    width: 100%;
+    background: #eee;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.progress-fill {
+    background: var(--accent-orange);
+    height: 100%;
+    border-radius: 3px;
+}
+
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+.zen-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+.zen-table th {
+    background: var(--surface-latte);
+    color: var(--text-coffee);
+    text-align: left;
+    padding: 12px;
+    font-weight: 600;
+}
+.zen-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-muted);
+}
+.zen-table tr:last-child td { border-bottom: none; }
